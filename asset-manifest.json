@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.6494a262.js",
-    "static/js/787.433da539.chunk.js": "/static/js/787.433da539.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.6494a262.js.map": "/static/js/main.6494a262.js.map",
-    "787.433da539.chunk.js.map": "/static/js/787.433da539.chunk.js.map"
+    "main.css": "/philippines-territories-site/static/css/main.073c9b0a.css",
+    "main.js": "/philippines-territories-site/static/js/main.4f1b718f.js",
+    "static/js/787.433da539.chunk.js": "/philippines-territories-site/static/js/787.433da539.chunk.js",
+    "static/media/logo.svg": "/philippines-territories-site/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/philippines-territories-site/index.html",
+    "main.073c9b0a.css.map": "/philippines-territories-site/static/css/main.073c9b0a.css.map",
+    "main.4f1b718f.js.map": "/philippines-territories-site/static/js/main.4f1b718f.js.map",
+    "787.433da539.chunk.js.map": "/philippines-territories-site/static/js/787.433da539.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.6494a262.js"
+    "static/js/main.4f1b718f.js"
   ]
 }
