@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,11 +12,33 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import Divider from '@mui/material/Divider';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
-const navItems = ['Home', 'About', 'Contact'];
 
-let Header = () => {
+// const navItems = ['Home', 'About', 'Contact'];
+
+const Header = () => {
+    const navigate = useNavigate();
     const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const authenticateUser = async (username, password) => {
+        try {
+            const response = await axios.post(
+                'https://netzwelt-devtest.azurewebsites.net/Account/SignIn',
+                {
+                    username: username,
+                    password: password,
+                }
+            );
+            const token = response.data.token;
+
+            return token;
+        } catch (error) {
+            console.error('Authentication failed:', error);
+            return null
+        }
+    };
 
     const toggleDrawer = (open) => (event) => {
         if (
@@ -28,6 +50,17 @@ let Header = () => {
 
         setDrawerOpen(open);
     };
+    const handleHomeClick = async () => {
+        //Check if user is logged in
+        // const isLoggedIn = true; 
+        const token = await authenticateUser('your_username', 'your_password');
+
+        if (token) {
+            navigate('/home'); //Authenticate user navigates to home page
+        } else {
+            navigate('/login'); //Unauthenticated user navigates to login page
+        }
+    };
 
     const drawerContent = (
         <Box sx={{ textAlign: 'center' }}>
@@ -36,16 +69,31 @@ let Header = () => {
             </Typography>
             <Divider />
             <List>
-                {navItems.map((item) => (
-                <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ textAlign: 'center' }}>
-                    <ListItemText primary={item} />
+                <ListItem disablePadding>
+                    <ListItemButton 
+                    sx={{ textAlign: 'center' }}
+                    onClick={handleHomeClick}
+                    >
+                        <ListItemText primary="Home"/>
                     </ListItemButton>
                 </ListItem>
-                ))}
+
+                <ListItem disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary="About"/>
+                    </ListItemButton>
+                </ListItem>
+
+                <ListItem disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary="Contact"/>
+                    </ListItemButton>
+                </ListItem>
             </List>
         </Box>
     );
+
+    
 
     return (
     // <header><h2>This is a sample header</h2></header>
