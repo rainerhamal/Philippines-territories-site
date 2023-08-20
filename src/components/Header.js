@@ -50,7 +50,7 @@ let Header = () => {
     return (
     // <header><h2>This is a sample header</h2></header>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             size="large"
