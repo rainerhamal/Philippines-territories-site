@@ -36,7 +36,7 @@ const Login = () => {
             navigate('/home');
         } catch(error) {
             console.error('Authentication failed:', error);
-            setErrorMessage('Login failed. Please check your credentials.');
+            setErrorMessage('Invalid username and/or password');
         }
     };
 

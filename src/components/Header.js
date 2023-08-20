@@ -62,6 +62,10 @@ const Header = () => {
         }
     };
 
+    const handleLoginClick = () => {
+        navigate('/login');
+    }
+
     const drawerContent = (
         <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
@@ -113,7 +117,7 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             The Philippines Teritorries
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={handleLoginClick}>Login</Button>
         </Toolbar>
       </AppBar>
       <Drawer
